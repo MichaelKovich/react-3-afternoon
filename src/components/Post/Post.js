@@ -44,6 +44,7 @@ export default class Post extends Component {
 
   render() {
     const { editing, showMasterMenu } = this.state;
+    const { text, date } = this.props;
 
     return (
       <section className="Post__parent" onClick={ this.hideMasterMenu }>
@@ -65,7 +66,7 @@ export default class Post extends Component {
           <span className="Post__name">DevMountain</span>
           <span className="Post__handle">@DevMountain</span>
 
-          <span className="Post__date">- POST DATE GOES HERE</span>
+          <span className="Post__date">- {date}</span>
         </div>
 
         <div className="Post__content">
@@ -75,7 +76,7 @@ export default class Post extends Component {
               <Edit text=""
                     hideEdit={ this.hideEdit } />
             :
-              <span className="Post__text">POST TEXT GOES HERE</span>
+              <span className="Post__text">{text}</span>
           }
         </div>
 
