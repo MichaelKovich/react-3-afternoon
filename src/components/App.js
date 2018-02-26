@@ -25,8 +25,7 @@ class App extends Component {
     axios.get('https://practiceapi.devmountain.com/api/posts').then((results) => {this.setState({posts: results.data})});
   }
 
-  updatePost(id, text) {
-    axios.put('https://practiceapi.devmountain.com/api/posts?id=${id}', {text}).then((results) => {this.setState({posts: results.data})});
+  updatePost(id, text) {axios.put(`https://practiceapi.devmountain.com/api/posts?id=${id}`, {text}).then( results => {this.setState({ posts: results.data })});
   }
 
   deletePost() {
