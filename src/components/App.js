@@ -45,7 +45,6 @@ class App extends Component {
   }
 
   filterFn(input) {
-    console.log(input);
     axios.get(`https://practiceapi.devmountain.com/api/posts/filter?text=${input}`).then(results => {
       this.setState({posts: results.data});
     }).catch(e => {

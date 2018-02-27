@@ -10,15 +10,10 @@ export default class Header extends Component {
   constructor(props) {
     super(props)
 
-    // this.state = {
-    //   searchInput: ''
-    // }
-
     this.filterInput = this.filterInput.bind(this);
   }
 
   filterInput(input) {
-    // this.setState({searchInput: input});
     this.props.inputfilter(input);
   }
 
