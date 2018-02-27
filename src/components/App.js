@@ -16,9 +16,10 @@ class App extends Component {
       posts: []
     };
 
-    this.updatePost = this.updatePost.bind( this );
-    this.deletePost = this.deletePost.bind( this );
-    this.createPost = this.createPost.bind( this );
+    this.updatePost = this.updatePost.bind(this);
+    this.deletePost = this.deletePost.bind(this);
+    this.createPost = this.createPost.bind(this);
+    this.filterFn = this.filterFn.bind(this);
   }
   
   componentDidMount() {
@@ -43,12 +44,21 @@ class App extends Component {
     });
   }
 
+  filterFn(input) {
+    console.log(input);
+    axios.get(`https://practiceapi.devmountain.com/api/posts/filter?text=${input}`).then(results => {
+      this.setState({posts: results.data});
+    }).catch(e => {
+      console.log(e);
+  });
+  }
+
   render() {
     const { posts } = this.state;
 
     return (
       <div className="App__parent">
-        <Header />
+        <Header inputfilter={this.filterFn}/>
 
         <section className="App__content">
 

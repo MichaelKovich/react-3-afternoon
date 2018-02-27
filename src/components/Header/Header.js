@@ -7,6 +7,21 @@ import './Header.css';
 import Search from './Search/Search';
 
 export default class Header extends Component {
+  constructor(props) {
+    super(props)
+
+    // this.state = {
+    //   searchInput: ''
+    // }
+
+    this.filterInput = this.filterInput.bind(this);
+  }
+
+  filterInput(input) {
+    // this.setState({searchInput: input});
+    this.props.inputfilter(input);
+  }
+
   render() {
     return (
       <section className="Header__parent">
@@ -19,7 +34,7 @@ export default class Header extends Component {
 
 
           <div className="Header__right">
-            <Search />
+            <Search filter={this.filterInput} />
 
             <div className="Header__profile">
               <ProfileIcon />
